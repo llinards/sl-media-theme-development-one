@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="{{ shop.locale | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+      {% if page_title %}{{ page_title }} – {% endif %}
+      {{ shop.name }}
+    </title>
+    {{ content_for_header }}
+    <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
+  </head>
+  <body>
+    {% sections 'header-group' %}
+    {{ content_for_layout }}
+  </body>
+</html>

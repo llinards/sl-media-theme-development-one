@@ -1,0 +1,62 @@
+<style>
+  .collection-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .product-card {
+    border: 1px solid #eee;
+    padding: 12px;
+    text-align: center;
+    background: #fff;
+  }
+  .product-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+    object-fit: cover;
+  }
+  .product-card h2 {
+    font-size: 1rem;
+    margin: 0 0 8px;
+  }
+  .price {
+    font-weight: 600;
+    color: #111;
+  }
+  @media (max-width: 900px) {
+    .collection-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 600px) {
+    .collection-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="container">
+  <h1>{{ collection.title }}</h1>
+
+  {% if collection.products_count > 0 %}
+    <div class="collection-grid">
+      {% for product in collection.products %}
+        <article class="product-card">
+          <a href="{{ product.url }}">
+            {% if product.featured_image %}
+              <img src="{{ product.featured_image | img_url: '500x' }}" alt="{{ product.title }}">
+            {% endif %}
+            <h2>{{ product.title }}</h2>
+            <div class="price">
+              {{ product.selected_or_first_available_variant.price | money }}
+            </div>
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No products found in this collection.</p>
+  {% endif %}
+</div>

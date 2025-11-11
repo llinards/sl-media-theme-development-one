@@ -1,0 +1,23 @@
+{
+  "type": "header",
+  "name": "Header Group",
+  "sections": {
+    "announcement_bar_3RbnaW": {
+      "type": "announcement-bar",
+      "name": "Announcement Bar",
+      "settings": {
+        "background_color": "#000000",
+        "text_color": "#ffffff",
+        "announcement_text": "Welcome! We are open! Shop now!"
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {}
+    }
+  },
+  "order": [
+    "announcement_bar_3RbnaW",
+    "header"
+  ]
+}

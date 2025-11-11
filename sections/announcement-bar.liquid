@@ -1,0 +1,48 @@
+<style>
+  .announcement-bar {
+    background: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 4px;
+  }
+
+  .announcement-bar p { margin: 0; }
+</style>
+
+<section class="announcement-bar" role="region" aria-label="Announcement" data-section-id="{{ section.id }}">
+  <p>{{ section.settings.announcement_text }}</p>
+</section>
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement text",
+      "default": "Welcome to our store! Enjoy free shipping on orders over $50."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement Bar",
+      "category": "Header"
+    }
+  ]
+}
+{% endschema %}
