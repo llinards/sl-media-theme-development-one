@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "custom-application-form",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
