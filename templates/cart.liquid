@@ -99,7 +99,7 @@
 
           <div class="item-details">
             <h3>{{ item.product.title }}</h3>
-            {% if item.variant.title !== 'Default title' %}
+            {% if true %}{{ 'Liquid error (templates/cart line 102): Unknown operator !==' }}{% elsif false %}
               <p>{{ item.variant.title }}</p>
             {% endif %}
             <p>Price: {{ item.price | money }}</p>
@@ -129,3 +129,14 @@
     </div>
   {% endif %}
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% if item.variant.title !== 'Default title' %}"
+  to: "{% if true %}{{ 'Liquid error (templates/cart line 102): Unknown operator !=='
+    }}{% elsif false %}"
+  position: 1785..1883
+{% endcomment %}
